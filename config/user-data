@@ -1,0 +1,29 @@
+#cloud-config
+autoinstall:
+  version: 1
+  # @see https://ubuntu.com/server/docs/install/autoinstall-reference
+  apt:
+    primary:
+      - arches: [default]
+        uri: https://mirrors.tuna.tsinghua.edu.cn/ubuntu
+  packages:
+    - net-tools
+    - python3-pip
+  # proxy: http://192.168.56.1:21087
+  user-data:
+    timezone: Asia/Shanghai
+    disable_root: true
+  # https://www.golinuxcloud.com/customize-cloud-init-user-data-ubuntu/
+  identity:
+    hostname: pxe-server
+    # user
+    password: "$6$su/nBuoLzuiZOzV2$ykU2wpa33OCv9fRBrVjxMyCEgvXElg5GmfRdu1DrY/jVfpmNCZJNaqrZG7YDme/N1O8WvaD//Av036FqUQ3eD0"
+    username: user
+  keyboard: {layout: us, variant: ""}
+  locale: en_US.UTF-8
+  # proxy: http://proxy.example.org
+  ssh:
+    install-server: true
+    authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII9r+5SiglLx072DJSF4x61+QwjnliLfIb820yf0S1st 18029544890@feishu.uestc.cn
+

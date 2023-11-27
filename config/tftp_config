@@ -1,0 +1,6 @@
+DEFAULT linux
+LABEL linux
+  SAY "Booting the Ubuntu 22.04 Installer..."
+  KERNEL vmlinuz
+  INITRD initrd
+  APPEND root=/dev/ram0 ramdisk_size=1500000  ip=dhcp url=http://192.168.1.1/ubuntu-22.04.3-live-server-amd64.iso autoinstall ds=nocloud-net s=http://192.168.1.1/autoinstall/ cloud-config-url=http://192.168.1.1/autoinstall/user-data console=tty1 console=ttyS0 ---
